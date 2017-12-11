@@ -1,6 +1,6 @@
 #!/bin/sh
 cd /opt/plextogether
-if [[ -v AUTOJOIN ]]; then
+if [ ! -z ${AUTOJOIN+x} ]; then
 	if [ ! -f autojoinenabled ]; then
 		sed -i -e "s/autoJoin: false/autoJoin: true/g" /opt/plextogether/src/store.js
 		sed -i -e "s/autoJoinUrl: null/autoJoinUrl: '$DOMAIN'/g" /opt/plextogether/src/store.js
