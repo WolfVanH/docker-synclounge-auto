@@ -1,5 +1,5 @@
-# docker-plextogether-autojoin
-The official plextogether container with autojoin enabled for your custom domain
+# docker-synclounge-auto
+The official SyncLounge container with autojoin enabled for your custom domain
 
 ```
 docker run \
@@ -11,7 +11,7 @@ docker run \
   rix1337/docker-plextogether-autojoin
 ```
 
-With the  AUTOJOIN variable, this script will ensure, your local clients never see the server selection, and instead will be connected to your local PlexTogether server every time. Only works, if DOMAIN is accessible through https. See below for how to do set up nginx:
+With the  AUTOJOIN variable, this script will ensure, your local clients never see the server selection, and instead will be connected to your local SyncLounge server every time. Only works, if DOMAIN is accessible through https. See below for how to do set up nginx:
 
 #### To run both the Plex Together webapp and the Plex Together server through a web server like nginx you will need to make sure you proxy websockets. Example nginx.conf:
 
