@@ -14,7 +14,7 @@ docker run \
   rix1337/docker-synclounge-auto
 ```
 
-With the  AUTOJOIN variable, this script will ensure, your local clients never see the server selection, and instead will be connected to your local SyncLounge server every time. Only works, if DOMAIN is accessible through https. See below for how to do set up nginx (just add the location blocks to your server block listening on 443):
+With the environment variables, this script will ensure, your local clients never see the server selection, and instead will be connected to your local SyncLounge server every time. Only works, if DOMAIN is accessible through https. See below for how to do set up nginx (just add the location blocks to your server block listening on 443):
 
  ```
  	location /slweb {
