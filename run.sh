@@ -1,11 +1,19 @@
 #!/bin/sh
+
 cd /opt/synclounge
-if [ ! -z ${AUTOJOIN+x} ]; then
-	if [ ! -f autojoinenabled ]; then
-		sed -i -e "s/autoJoin: false/autoJoin: true/g" /opt/synclounge/src/store.js
-		sed -i -e "s/autoJoinUrl: null/autoJoinUrl: '$DOMAIN'/g" /opt/synclounge/src/store.js
-		npm run build
-		touch autojoinenabled
-	fi
+
+needRebuild=false
+if [ $webroot != "" ]; then
+  needRebuild=true
 fi
-npm run server & node webapp.js --accessUrl=https://$DOMAIN/ptweb
+if [ $autoJoin == "true" ]; then
+  needRebuild=true
+fi
+if [ $needRebuild == "true" ]; then
+  echo 'Rebuilding Webapp for custom options support. This can take a minute or two.'
+  npm install
+  npm run build
+else
+  echo 'Not rebuilding webapp'
+fi
+export accessUrl=https://$DOMAIN/slweb; npm run server & node webapp.js
