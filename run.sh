@@ -8,4 +8,4 @@ if [ ! -z ${AUTOJOIN+x} ]; then
 		touch autojoinenabled
 	fi
 fi
-npm run server & node webapp.js --url=https://$DOMAIN/ptweb
+npm run server & node webapp.js --accessUrl=https://$DOMAIN/ptweb
